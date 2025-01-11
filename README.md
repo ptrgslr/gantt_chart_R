@@ -18,9 +18,11 @@ Install required R packages:
 Ensure that you have the necessary R packages installed. You can install them using the following commands in your R console:
 
 R
-```install.packages("ggplot2")
+```r
+install.packages("ggplot2")
 install.packages("dplyr")
-install.packages("lubridate")```
+install.packages("lubridate")
+```
 
 ## Usage
 Prepare your data:

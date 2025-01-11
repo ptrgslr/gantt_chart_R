@@ -1,0 +1,60 @@
+---
+title: "Gantt"
+format: html
+
+---
+
+#librarys
+```{r}
+library(ggplot2)
+library(dplyr)
+library(readr)
+```
+#df
+```{r}
+
+tasks <- read_delim("Gantt_tasks.csv", delim = ";", col_types = cols(.default = "c")) %>%
+  mutate(
+    Start = as.Date(Start, format = "%d.%m.%Y"),
+    End = as.Date(End, format = "%d.%m.%Y")
+  )
+
+# Convert Task to a factor in reverse order for consistent plotting order
+tasks$Task <- factor(tasks$Task, levels = rev(tasks$Task))
+
+# Load and prepare the milestones data
+milestones <- read_delim("Gantt_milestones2.csv", delim = ";", col_types = cols(.default = "c")) %>%
+  mutate(
+    Date = as.Date(Date, format = "%d.%m.%Y")
+)
+
+# Convert Milestone to a factor in reverse order for consistent plotting order
+milestones$Milestone <- factor(milestones$Milestone, levels = rev(milestones$Milestone))
+
+```
+
+
+```{r}
+ggplot() +
+  # Gantt bars for tasks
+  geom_segment(data = tasks, aes(x = Start, xend = End, y = Task, yend = Task, color = Group), linewidth = 6) +
+  # Milestone points
+  geom_point(data = milestones, aes(x = Date, y = Milestone), color = "green", size = 3) +
+  # Labels for milestones
+  geom_text(data = milestones, aes(x = Date, y = Milestone, label = Nr), 
+            hjust = 2, color = "green", size = 3) +
+  # Plot labels and theme settings
+  labs(title = "Master Thesis Zeitplan und Meilensteine", x = "KW40 2024 bis KW24 2026", y = "Aufgabe/Meilenstein") +
+  scale_x_date(date_breaks = "4 weeks", date_labels = "%V") +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_text(size = 9), 
+    legend.position = "bottom",       # Place legend at the bottom
+    legend.box.margin = margin(t = 10) # Add space between plot and legend
+  ) +
+  guides(color = guide_legend(title = "Phase", nrow = 2)) # Arrange legend in 2 rows
+
+
+
+```
+

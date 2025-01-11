@@ -8,19 +8,19 @@ Outputs the Gantt chart in a clear, easy-to-understand format.
 
 ## Installation
 Clone the repository:
-git clone https://github.com/ptrgslr/gantt_chart_R.git
+`git clone https://github.com/ptrgslr/gantt_chart_R.git`
 
 Navigate to the project directory:
-cd gantt_chart_R
+`cd gantt_chart_R`
 
 Install required R packages:
 
 Ensure that you have the necessary R packages installed. You can install them using the following commands in your R console:
 
 R
-install.packages("ggplot2")
+```install.packages("ggplot2")
 install.packages("dplyr")
-install.packages("lubridate")
+install.packages("lubridate")```
 
 ## Usage
 Prepare your data:

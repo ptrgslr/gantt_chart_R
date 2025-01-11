@@ -1,7 +1,7 @@
 # Gantt Chart R
 This repository contains an R script designed to create a basic Gantt chart for thesis planning.
 
-##Features
+## Features
 Generates a simple Gantt chart to visualize thesis tasks and milestones.
 Customizable task durations and milestones.
 Outputs the Gantt chart in a clear, easy-to-understand format.
@@ -23,7 +23,7 @@ install.packages("ggplot2")
 install.packages("dplyr")
 install.packages("lubridate")
 
-##Usage
+## Usage
 Prepare your data:
 
 Gantt_tasks.csv: Contains the list of tasks with their start and end dates.
@@ -38,8 +38,8 @@ View the output:
 
 The script will produce a Gantt chart displaying your thesis plan, which you can view within RStudio or export as needed.
 
-Contributing
+## Contributing
 Contributions are welcome! If you have suggestions for improvements or encounter any issues, please open an issue or submit a pull request.
 
-##License
+## License
 This project is licensed under the MIT License.

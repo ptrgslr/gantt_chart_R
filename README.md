@@ -5,15 +5,14 @@ This repository contains an R script designed to create a basic Gantt chart for 
 Generates a simple Gantt chart to visualize thesis tasks and milestones.
 Customizable task durations and milestones.
 Outputs the Gantt chart in a clear, easy-to-understand format.
-Installation
+
+## Installation
 Clone the repository:
-
-bash
 git clone https://github.com/ptrgslr/gantt_chart_R.git
-Navigate to the project directory:
 
-bash
+Navigate to the project directory:
 cd gantt_chart_R
+
 Install required R packages:
 
 Ensure that you have the necessary R packages installed. You can install them using the following commands in your R console:

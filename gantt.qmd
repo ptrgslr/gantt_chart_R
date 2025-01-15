@@ -1,5 +1,5 @@
 ---
-title: "Gantt"
+title: "Gantt Chart"
 format: html
 
 ---
@@ -13,17 +13,16 @@ library(readr)
 #df
 ```{r}
 
-tasks <- read_delim("Gantt_tasks.csv", delim = ";", col_types = cols(.default = "c")) %>%
-  mutate(
-    Start = as.Date(Start, format = "%d.%m.%Y"),
-    End = as.Date(End, format = "%d.%m.%Y")
-  )
+tasks <- read_delim(file = "gantt_tasks.csv", delim = ",", col_names = TRUE)
+tasks$Start <- as.Date(tasks$Start, format = "%d.%m.%Y")
+tasks$End <- as.Date(tasks$End, format = "%d.%m.%Y")
+  
 
 # Convert Task to a factor in reverse order for consistent plotting order
 tasks$Task <- factor(tasks$Task, levels = rev(tasks$Task))
 
 # Load and prepare the milestones data
-milestones <- read_delim("Gantt_milestones2.csv", delim = ";", col_types = cols(.default = "c")) %>%
+milestones <- read_delim("gantt_milestones.csv", delim = ";", col_types = cols(.default = "c")) %>%
   mutate(
     Date = as.Date(Date, format = "%d.%m.%Y")
 )
